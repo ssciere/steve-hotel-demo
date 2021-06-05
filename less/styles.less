@@ -1,0 +1,278 @@
+@primaryFontColor :#000;
+@secondaryFontColor :#fff;
+@primaryBorderColor: #808080;
+@primaryBackgroundColor: white; /* if you change this color, the font-color mixons will correct the font */
+@primaryFontSize: 16px;
+@secondaryFontSize:20px;
+@primaryFontFamily: Georgia, serif;
+
+/* mixons: */
+.increaseFont(@fontSize,@fontWeight) {
+      font-weight:@fontWeight;
+      font-size:@fontSize;
+}
+
+.font-color(@bgcolor) when (lightness(@bgcolor) >= 50%){   
+    color:#000080;}    
+.font-color(@bgcolor) when (lightness(@bgcolor) < 50%){
+       color:#fff;
+}    
+
+
+
+/* ################### MAIN STYLING ########################## */
+body {
+    font-family: @primaryFontFamily;
+    font-size: 16px;     
+    background-color: @primaryBackgroundColor;
+}
+
+h2 {
+    color:purple;
+}
+
+
+.services-container {
+      
+      
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    justify-content: center;
+    width: 90%;      
+    margin-left: auto;
+    margin-right: auto;
+  
+    .font-color(@primaryBackgroundColor); 
+
+       h2{
+        color:green;
+        font-weight: 800;
+         }
+
+ 
+  }
+
+  .services-layout1 {
+    
+    display: flex;
+    justify-content: center;
+   
+    
+  }
+
+  .services-layout2 {
+    
+   
+    display: flex;
+    justify-content: center;
+  
+  }
+
+  .services-layout3 {
+ 
+    display: flex;
+    justify-content: center;
+   
+
+  }
+
+  .services-container  > div > div {
+
+    flex: 1 1 20%;
+    .increaseFont(@primaryFontSize, 1000 ); 
+    border-right: 1px solid @primaryBorderColor;
+    text-align: center;
+    padding: 0 2em .25rem 2em;
+    max-width:9rem;
+
+    
+  }
+
+  .inner-services-container>img#icon {
+    width: 100px;
+    padding-bottom: .5em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: if((lightness(@primaryBackgroundColor) < 50%), 50%); 
+    
+    
+  }
+
+  .services-layout3 > div:last-child {
+
+    border: none;
+
+  } 
+
+
+  #serviceLinkStyle {
+    white-space: nowrap;
+  }
+  
+  #removeBorder {
+    border: none;
+  }
+
+  #serviceLabel p {
+    display:inline-block;
+    margin-bottom:0;
+  }
+
+  .contactSection {
+      width:100%;
+      text-align: center;
+      padding-bottom: 3em;
+  }
+
+
+/* ############## IE FIX ###################### */
+
+  @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+
+ .services-container {
+    
+     
+    display: flex;
+   flex-direction: row;
+    justify-content: center;
+     width: 100%;     
+
+  }
+
+  .inner-services-container {width: 300px; height:200px;}
+
+
+  .services-layout1 {width: 400px;height:200px;}
+
+   .services-layout2 {width: 400px;height:200px;}
+
+   .services-layout3 {width: 200px;height:200px;}
+
+
+   .inner-services-container>img#icon {
+   
+   margin-left: 1em !important;
+
+
+ }
+
+ #ie-fix {
+   display: inline-block;
+   padding-right:4px;
+   
+ }
+
+
+       
+}
+/* ############### TABLET STYLING ##################### */
+
+@media (max-width: 992px) and (min-width: 768px) {
+  .class1 {
+  background-color: lightblue;
+}
+
+.services-container {
+
+      display: flex;
+     flex-direction: column;
+      max-width:100%;
+      
+    }
+
+    .services-container  > div > div {
+
+border:none;
+
+
+}
+
+.inner-services-container>img#icon {
+   
+    margin-bottom: -1em;
+
+
+  }
+
+.services-layout1  {
+
+    display: flex;
+   
+    justify-content: space-evenly;
+    border:none;
+    
+  }
+
+  .services-layout2 {
+
+    display: flex;
+    
+    justify-content: space-evenly;
+  }
+
+
+}
+
+/* ############### MOBILE STYLING ##################### */
+
+@media (max-width: 2200px)  {
+ 
+.services-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .services-layout1  {
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border:none;
+    
+  }
+
+  .services-layout2 {
+   
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .services-layout3 {
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+  }
+
+  .services-container  > div > div {
+
+
+    border:none;
+   
+    padding: 1em;
+    max-width:95%;
+    
+  }
+
+
+
+  .inner-services-container>img#icon {
+    width: 100px;
+    padding-bottom: 0;
+    margin-bottom: -.75em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+
+
+}
